@@ -1,0 +1,13 @@
+server:
+  port: 8443
+spring:
+  main:
+    web-application-type: reactive
+
+jwt:
+  rsa-key-path: "rsaKey.json"
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty: DEBUG
