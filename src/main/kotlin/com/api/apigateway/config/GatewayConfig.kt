@@ -1,6 +1,7 @@
 package com.api.apigateway.config
 
-import com.api.apigateway.util.JwtAuthenticationFilter
+import com.api.apigateway.filter.GlobalResponseFilter
+import com.api.apigateway.filter.JwtAuthenticationFilter
 import org.springframework.cloud.gateway.route.RouteLocator
 import org.springframework.cloud.gateway.route.builder.RouteLocatorBuilder
 import org.springframework.context.annotation.Bean
@@ -22,11 +23,10 @@ class GatewayConfig(
             .route("wallet_route") { r ->
                 r.path("/v1/wallet/**")
                     // .filters { f ->
-                    //     f.rewritePath("/wallet/(?<remaining>.*)", "/$\\{remaining}")
+                    //      f.rewritePath("/wallet/(?<remaining>.*)", "/$\\{remaining}")
                     // }
                     .uri("http://localhost:8083")
             }
             .build()
     }
 }
-
