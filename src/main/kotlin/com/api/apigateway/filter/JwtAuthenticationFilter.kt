@@ -1,5 +1,6 @@
-package com.api.apigateway.util
+package com.api.apigateway.filter
 
+import com.api.apigateway.util.JwtProvider
 import org.springframework.cloud.gateway.filter.GatewayFilter
 import org.springframework.cloud.gateway.filter.GatewayFilterChain
 import org.springframework.http.HttpHeaders
