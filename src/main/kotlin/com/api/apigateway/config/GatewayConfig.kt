@@ -21,11 +21,18 @@ class GatewayConfig(
                     .uri("http://localhost:8083")
             }
             .route("wallet_route") { r ->
-                r.path("/v1/wallet/**")
+                r.path("/v1/wallet/**", "/v1/signin/**")
                     // .filters { f ->
                     //      f.rewritePath("/wallet/(?<remaining>.*)", "/$\\{remaining}")
                     // }
                     .uri("http://localhost:8083")
+            }
+            .route("api_auth_route") { r ->
+                r.path("/v1/api-auth/**")
+                    // .filters { f ->
+                    //      f.rewritePath("/wallet/(?<remaining>.*)", "/$\\{remaining}")
+                    // }
+                    .uri("http://localhost:8081")
             }
             .build()
     }
